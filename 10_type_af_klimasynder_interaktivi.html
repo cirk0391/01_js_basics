@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Hvor mange timer flyder du?</p>
+    <input type="text" id="timer" />
+    <button>Klik og beregn co2, kig i consolen</button>
+
+    <script>
+      let timer = document.querySelector("#timer").value;
+      let co2 = 109;
+      let total = timer * co2;
+
+      let resultat;
+
+      document.querySelector("button").addEventListener("click", buttonClicked);
+      function buttonClicked() {
+        if (isNaN(total)) {
+          resultat = "Det er ikke et tal, prøv igen";
+        } else if (total < 100) {
+          resultat = `Du tænker på klimaet. Du har brugt ${total} kg co2 på din rejse`;
+        } else if (total <= 200) {
+          resultat = `Du gør det godt. Du har brugt ${total} kg co2 på din rejse`;
+        } else if (total <= 600) {
+          resultat = `Måske skal du til at spare på rejser. Du har brugt ${total} kg co2 på din rejse`;
+        } else {
+          resultat = `Tænk på klimaet og vores fremtid! Du har brugt ${total} kg co2 på din rejse`;
+        }
+
+        console.log(resultat);
+      }
+    </script>
+  </body>
+</html>
